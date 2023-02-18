@@ -15,7 +15,7 @@ export default function LessonsContent({ expandable = true }) {
             In this lesson, you will learn what videos you should make
           </span>
         </div>
-        <button class="btn btn-circle btn-ghost">
+        <button className="btn btn-circle btn-ghost">
           <svg
             viewBox="0 0 1024 1024"
             fill="currentColor"
@@ -39,7 +39,7 @@ export default function LessonsContent({ expandable = true }) {
             )}
           </div>
           <button
-            class="btn btn-circle btn-ghost"
+            className="btn btn-circle btn-ghost"
             onClick={() => expandable && toggleExpanded((prev) => !prev)}
           >
             <svg

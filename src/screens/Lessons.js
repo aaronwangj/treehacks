@@ -14,7 +14,7 @@ export default function Lessons() {
       <div className="h-20" />
       <div className="w-full inline-flex justify-between items-center">
         <h2 className="font-bold text-4xl">How to Start a YouTube Channel</h2>
-        <button class="btn btn-ghost gap-2">
+        <button className="btn btn-ghost gap-2">
           <h2
             className="font-bold text-xl"
             onClick={() => navigate("/creator")}
