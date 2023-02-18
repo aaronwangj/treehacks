@@ -4,11 +4,14 @@ import ScreenLayout from "../components/ScreenLayout";
 import { useState } from "react";
 import Webcam from "react-webcam";
 import { useNavigate } from "react-router-dom";
+import { useMutation } from "../convex/_generated/react";
 
 export default function LessonCreator() {
   const navigate = useNavigate();
   const [title, setTitle] = useState("");
   const [desc, setDesc] = useState("");
+  const sendMessage = useMutation("SendMessage");
+  const sendInfo = () => sendMessage(desc, title);
   return (
     <ScreenLayout>
       <h1 className={classNames(headingTextStyle)}>Lesson Creator</h1>
@@ -36,6 +39,12 @@ export default function LessonCreator() {
             placeholder="Describe your lesson"
             onChange={(e) => setDesc(e.target.value)}
           />
+          <button
+          className="btn btn-lg border-none rounded-md bg-gradient-to-r from-[#00df16] to-[#08bad2]"
+          onClick={() => sendInfo()}
+        >
+          Publish Now
+        </button>
         </div>
         <div className="w-full h-10" />
         <div className="flex flex-col justify-center items-center w-full space-y-5">

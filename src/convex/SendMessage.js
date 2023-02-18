@@ -1,6 +1,7 @@
 import { mutation } from "./_generated/server";
 
-export default mutation(({ db }, name, description, published) => {
-  const message = { name, description, published };
-  db.insert("courses", message);
+export default mutation(({ db }, description, title) => {
+  const message = { description, title };
+  console.log(message);
+  db.insert("lessons", message);
 });
