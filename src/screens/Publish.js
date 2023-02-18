@@ -121,6 +121,12 @@ export default function Publish() {
           </span>
         </div>
       </div>
+      <div className="w-full h-10" />
+      <div className="w-full flex items-center justify-center">
+        <button className="btn btn-lg border-none rounded-md bg-gradient-to-r from-[#00df16] to-[#08bad2]">
+          Publish Now
+        </button>
+      </div>
     </ScreenLayout>
   );
 }
