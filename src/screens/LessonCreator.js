@@ -3,8 +3,10 @@ import { headingTextStyle } from "./styles";
 import ScreenLayout from "../components/ScreenLayout";
 import { useState } from "react";
 import Webcam from "react-webcam";
+import { useNavigate } from "react-router-dom";
 
 export default function LessonCreator() {
+  const navigate = useNavigate();
   const [title, setTitle] = useState("");
   const [desc, setDesc] = useState("");
   return (
@@ -75,8 +77,11 @@ export default function LessonCreator() {
           </span>
           <div className="w-full h-full relative flex justify-center items-center">
             <Webcam imageSmoothing={true} audio={true} />
-            <span className="absolute left-1/2 bottom-10">
-              <button class="btn btn-circle btn-error">
+            <span className="absolute left-[calc(50%_-_1.5em)] bottom-10">
+              <button
+                class="btn btn-circle btn-error"
+                onClick={() => navigate("/publish")}
+              >
                 <svg
                   fill="currentColor"
                   viewBox="0 0 16 16"

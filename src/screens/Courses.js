@@ -1,8 +1,10 @@
+import { useNavigate } from "react-router-dom";
 import classNames from "classnames";
 import { headingTextStyle } from "./styles";
 import ScreenLayout from "../components/ScreenLayout";
 
 export default function Courses() {
+  const navigate = useNavigate();
   return (
     <ScreenLayout>
       <h1 className={classNames(headingTextStyle)}>Welcome, Aaron</h1>
@@ -28,7 +30,10 @@ export default function Courses() {
       <div className="h-5" />
       <div className="flex-col flex space-y-5">
         <div className="w-full h-[2px] bg-gray-500" />
-        <div className="inline-flex h-[15vh] w-full bg-white border rounded-xl shadow p-10 items-center hover:opacity-60">
+        <div
+          className="inline-flex h-[15vh] w-full bg-white border rounded-xl shadow p-10 items-center hover:opacity-60"
+          onClick={() => navigate("/lessons")}
+        >
           <div className="flex flex-col flex-1">
             <span className="font-bold text-2xl">
               How to Start a YouTube Channel

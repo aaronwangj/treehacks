@@ -1,7 +1,7 @@
 import ReactPlayer from "react-player";
 import { useState } from "react";
 
-export default function LessonsContent() {
+export default function LessonsContent({ expandable = true }) {
   const [expanded, toggleExpanded] = useState(false);
   return (
     <div className="flex-col flex space-y-5">
@@ -40,20 +40,22 @@ export default function LessonsContent() {
           </div>
           <button
             class="btn btn-circle btn-ghost"
-            onClick={() => toggleExpanded((prev) => !prev)}
+            onClick={() => expandable && toggleExpanded((prev) => !prev)}
           >
             <svg
               viewBox="0 0 1024 1024"
               fill="currentColor"
               height="2em"
               width="2em"
-              className={("transform", expanded ? "rotate-90" : "rotate-0")}
+              className={
+                ("transform", expanded && expandable ? "rotate-90" : "rotate-0")
+              }
             >
               <path d="M715.8 493.5L335 165.1c-14.2-12.2-35-1.2-35 18.5v656.8c0 19.7 20.8 30.7 35 18.5l380.8-328.4c10.9-9.4 10.9-27.6 0-37z" />
             </svg>
           </button>
         </div>
-        {expanded && (
+        {expanded && expandable && (
           <div className="flex flex-col space-y-5">
             <div className="flex w-full items-center justify-center">
               <ReactPlayer

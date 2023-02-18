@@ -2,8 +2,10 @@ import classNames from "classnames";
 import { headingTextStyle } from "./styles";
 import ScreenLayout from "../components/ScreenLayout";
 import LessonsContent from "../components/LessonsContent";
+import { useState } from "react";
 
 export default function User() {
+  const [paid, togglePaid] = useState(false);
   return (
     <ScreenLayout>
       <h1 className={classNames(headingTextStyle)}>
@@ -23,13 +25,18 @@ export default function User() {
           </div>
         </div>
         <span className="text-4xl">Course Curriculum</span>
-        <LessonsContent />
+        <LessonsContent expandable={paid} />
       </div>
       <div className="w-full h-10" />
       <div className="w-full flex items-center justify-center">
-        <button className="btn btn-lg border-none rounded-md bg-gradient-to-r from-[#00df16] to-[#08bad2]">
-          Buy for $249
-        </button>
+        {!paid && (
+          <button
+            className="btn btn-lg border-none rounded-md bg-gradient-to-r from-[#00df16] to-[#08bad2]"
+            onClick={() => togglePaid(true)}
+          >
+            Buy for $249
+          </button>
+        )}
       </div>
     </ScreenLayout>
   );

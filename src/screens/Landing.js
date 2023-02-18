@@ -1,7 +1,9 @@
 import classNames from "classnames";
+import { useNavigate } from "react-router-dom";
 import { headingTextStyle } from "./styles";
 
 export default function Landing() {
+  const navigate = useNavigate();
   return (
     <div className="w-screen h-screen bg-[url('landing.png')] bg-no-repeat bg-cover flex flex-col items-center justify-center space-y-10">
       <h1 className={classNames(headingTextStyle, "text-center")}>
@@ -13,10 +15,16 @@ export default function Landing() {
         platform for creators everywhere.
       </p>
       <div className="w-1/2 h-14 flex space-x-16 justify-center items-center">
-        <button className="bg-[#7DC1FF] w-1/4 h-full rounded-full font-semibold text-xl">
+        <button
+          className="bg-[#7DC1FF] w-1/4 h-full rounded-full font-semibold text-xl"
+          onClick={() => navigate("courses")}
+        >
           Get Started
         </button>
-        <button className="bg-[#9EFF9C] w-1/4 h-full rounded-full font-semibold text-xl">
+        <button
+          className="bg-[#9EFF9C] w-1/4 h-full rounded-full font-semibold text-xl"
+          onClick={() => navigate("courses")}
+        >
           Log In
         </button>
       </div>

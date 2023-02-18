@@ -2,11 +2,10 @@ import classNames from "classnames";
 import ReactPlayer from "react-player";
 import { headingTextStyle } from "./styles";
 import ScreenLayout from "../components/ScreenLayout";
-import { useState } from "react";
+import { useNavigate } from "react-router-dom";
 
 export default function Publish() {
-  const [title, setTitle] = useState("");
-  const [desc, setDesc] = useState("");
+  const navigate = useNavigate();
   return (
     <ScreenLayout>
       <h1 className={classNames(headingTextStyle)}>Publish Your Lesson</h1>
@@ -123,7 +122,10 @@ export default function Publish() {
       </div>
       <div className="w-full h-10" />
       <div className="w-full flex items-center justify-center">
-        <button className="btn btn-lg border-none rounded-md bg-gradient-to-r from-[#00df16] to-[#08bad2]">
+        <button
+          className="btn btn-lg border-none rounded-md bg-gradient-to-r from-[#00df16] to-[#08bad2]"
+          onClick={() => navigate("/user")}
+        >
           Publish Now
         </button>
       </div>
