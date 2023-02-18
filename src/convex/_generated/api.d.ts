@@ -11,6 +11,7 @@
 
 import type { ApiFromModules } from "convex/api";
 import type * as ListCourses from "../ListCourses";
+import type * as ListLessons from "../ListLessons";
 import type * as SendMessage from "../SendMessage";
 
 /**
@@ -24,5 +25,6 @@ import type * as SendMessage from "../SendMessage";
  */
 export type API = ApiFromModules<{
   ListCourses: typeof ListCourses;
+  ListLessons: typeof ListLessons;
   SendMessage: typeof SendMessage;
 }>;

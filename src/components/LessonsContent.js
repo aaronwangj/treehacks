@@ -1,31 +1,40 @@
 import ReactPlayer from "react-player";
 import { useState } from "react";
+import { useQuery } from "../convex/_generated/react";
 
 export default function LessonsContent({ expandable = true }) {
   const [expanded, toggleExpanded] = useState(false);
+  const data = useQuery("ListLessons");
+  if (data === undefined) {
+    return <div>Loading...</div>;
+  }
   return (
     <div className="flex-col flex space-y-5">
       <div className="w-full h-[2px] bg-gray-500" />
-      <div className="inline-flex h-[15vh] w-full bg-white border rounded-xl shadow p-10 items-center">
-        <div className="flex flex-col flex-1">
-          <span className="font-bold text-2xl">
-            Part 1: Finding Your Audience
-          </span>
-          <span className="text-lg">
-            In this lesson, you will learn what videos you should make
-          </span>
-        </div>
-        <button class="btn btn-circle btn-ghost">
-          <svg
-            viewBox="0 0 1024 1024"
-            fill="currentColor"
-            height="2em"
-            width="2em"
-          >
-            <path d="M715.8 493.5L335 165.1c-14.2-12.2-35-1.2-35 18.5v656.8c0 19.7 20.8 30.7 35 18.5l380.8-328.4c10.9-9.4 10.9-27.6 0-37z" />
-          </svg>
-        </button>
-      </div>
+      {data.map((entry) => {
+        return (
+          <div className="inline-flex h-[15vh] w-full bg-white border rounded-xl shadow p-10 items-center">
+            <div className="flex flex-col flex-1">
+              <span className="font-bold text-2xl">
+                {entry.title}
+              </span>
+              <span className="text-lg">
+                {entry.description}
+              </span>
+            </div>
+            <button class="btn btn-circle btn-ghost">
+              <svg
+                viewBox="0 0 1024 1024"
+                fill="currentColor"
+                height="2em"
+                width="2em"
+              >
+                <path d="M715.8 493.5L335 165.1c-14.2-12.2-35-1.2-35 18.5v656.8c0 19.7 20.8 30.7 35 18.5l380.8-328.4c10.9-9.4 10.9-27.6 0-37z" />
+              </svg>
+            </button>
+          </div>
+        );
+      })}
       <div className="flex flex-col space-y-5 bg-white border rounded-xl shadow p-10 min-h-[15vh]">
         <div className="inline-flex w-full items-center">
           <div className="flex flex-col flex-1">
