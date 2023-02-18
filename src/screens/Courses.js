@@ -5,7 +5,7 @@ import ScreenLayout from "../components/ScreenLayout";
 export default function Courses() {
   return (
     <ScreenLayout>
-      <h1 className={classNames(headingTextStyle)}>Courses</h1>
+      <h1 className={classNames(headingTextStyle)}>Welcome, Aaron</h1>
       <div className="h-20" />
       <div className="w-full inline-flex justify-between items-center">
         <h2 className="font-bold text-4xl">Your Courses</h2>
@@ -14,8 +14,8 @@ export default function Courses() {
           <svg
             viewBox="0 0 1024 1024"
             fill="currentColor"
-            height="1em"
-            width="1em"
+            height="1.5em"
+            width="1.5em"
           >
             <defs>
               <style />
@@ -25,6 +25,7 @@ export default function Courses() {
           </svg>
         </button>
       </div>
+      <div className="h-5" />
       <div className="flex-col flex space-y-5">
         <div className="w-full h-[2px] bg-gray-500" />
         <div className="inline-flex h-[15vh] w-full bg-white border rounded-xl shadow p-10 items-center hover:opacity-60">
