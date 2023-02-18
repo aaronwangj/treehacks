@@ -1,9 +1,10 @@
 import "./App.css";
+import Landing from "./screens/Landing";
 
 function App() {
   return (
     <div className="w-full h-full bg-red-400">
-      <h1>HI</h1>
+      <Landing />
     </div>
   );
 }
