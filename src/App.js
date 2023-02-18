@@ -1,6 +1,6 @@
 import "./App.css";
 import Landing from "./screens/Landing";
-import Dashboard from "./screens/Dashboard";
+import Dashboard from "./screens/Dashboard/Dashboard";
 import { Routes, Route } from 'react-router-dom';
 
 function App() {

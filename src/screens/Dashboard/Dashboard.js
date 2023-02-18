@@ -1,4 +1,5 @@
 import "./Dashboard.css";
+import edit from './edit.png';
 export default function Dashboard() {
   let data = [
     {
@@ -44,7 +45,7 @@ const Course = ({ item }) => {
       </div>
       <div className="course-right">
         <h1>{item.price}</h1>
-        <h1>picture</h1>
+        <img src={edit} />
       </div>
     </div>
   );

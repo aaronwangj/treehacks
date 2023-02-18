@@ -68,5 +68,9 @@
 .course-text {
 	display: flex;
 	flex-direction: column;
+}
 
+.course-right {
+	display: flex;
+	/* flex-direction: column; */
 }
