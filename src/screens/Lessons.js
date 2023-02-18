@@ -7,7 +7,7 @@ import BackButton from "../components/BackButton";
 
 export default function Lessons() {
   const navigate = useNavigate();
-  
+
   return (
     <ScreenLayout>
       <BackButton />

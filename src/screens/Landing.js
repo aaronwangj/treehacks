@@ -4,6 +4,7 @@ import { headingTextStyle } from "./styles";
 
 export default function Landing() {
   const navigate = useNavigate();
+
   return (
     <div className="w-screen h-screen bg-[url('landing.png')] bg-no-repeat bg-cover flex flex-col items-center justify-center space-y-10">
       <h1 className={classNames(headingTextStyle, "text-center")}>

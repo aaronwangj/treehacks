@@ -15,12 +15,8 @@ export default function LessonsContent({ expandable = true }) {
         return (
           <div className="inline-flex h-[15vh] w-full bg-white border rounded-xl shadow p-10 items-center">
             <div className="flex flex-col flex-1">
-              <span className="font-bold text-2xl">
-                {entry.title}
-              </span>
-              <span className="text-lg">
-                {entry.description}
-              </span>
+              <span className="font-bold text-2xl">{entry.title}</span>
+              <span className="text-lg">{entry.description}</span>
             </div>
             <button class="btn btn-circle btn-ghost">
               <svg
@@ -48,7 +44,7 @@ export default function LessonsContent({ expandable = true }) {
             )}
           </div>
           <button
-            class="btn btn-circle btn-ghost"
+            className="btn btn-circle btn-ghost"
             onClick={() => expandable && toggleExpanded((prev) => !prev)}
           >
             <svg

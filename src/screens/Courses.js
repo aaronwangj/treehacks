@@ -16,7 +16,7 @@ export default function Courses() {
       <div className="h-20" />
       <div className="w-full inline-flex justify-between items-center">
         <h2 className="font-bold text-4xl">Your Courses</h2>
-        <button class="btn btn-ghost gap-2">
+        <button className="btn btn-ghost gap-2">
           <h2 className="font-bold text-xl">Add a course</h2>
           <svg
             viewBox="0 0 1024 1024"
@@ -42,12 +42,8 @@ export default function Courses() {
               onClick={() => navigate("/lessons")}
             >
               <div className="flex flex-col flex-1">
-                <span className="font-bold text-2xl">
-                  {entry.name}
-                </span>
-                <span className="text-lg">
-                  {entry.description}
-                </span>
+                <span className="font-bold text-2xl">{entry.name}</span>
+                <span className="text-lg">{entry.description}</span>
               </div>
               <span className="text-xl w-10">$249</span>
               <div className="w-5" />
@@ -64,7 +60,8 @@ export default function Courses() {
             </div>
           </div>
         );
-      })};
+      })}
+      ;
     </ScreenLayout>
   );
 }

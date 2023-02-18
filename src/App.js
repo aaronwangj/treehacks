@@ -1,4 +1,5 @@
 import "./App.css";
+import { useState } from "react";
 import Courses from "./screens/Courses";
 import Landing from "./screens/Landing";
 import ConvexTest from "./screens/ConvexTest";
@@ -9,6 +10,15 @@ import Publish from "./screens/Publish";
 import User from "./screens/User";
 
 function App() {
+  const [transcript, setTranscript] = useState("");
+  const [summary, setSummary] = useState("");
+  const [quiz, setQuiz] = useState("");
+  // transcript: "",
+  // summary: [],
+  // quiz: [],
+  // setTranscript: () => {},
+  // setSummary: () => {},
+  // setQuiz: () => {},
   return (
     <Router>
       <Routes>

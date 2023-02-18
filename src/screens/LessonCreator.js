@@ -5,6 +5,7 @@ import { useState } from "react";
 import Webcam from "react-webcam";
 import { useNavigate } from "react-router-dom";
 import { useMutation } from "../convex/_generated/react";
+import axios from "axios";
 
 export default function LessonCreator() {
   const navigate = useNavigate();
@@ -12,6 +13,23 @@ export default function LessonCreator() {
   const [desc, setDesc] = useState("");
   const sendMessage = useMutation("SendMessage");
   const sendInfo = () => sendMessage(desc, title);
+
+  const handleFileSubmit = (files) => {
+    axios
+      .post("http://localhost:5000", files[0], {
+        headers: {
+          "Content-Type": "video/mp4",
+          "Access-Control-Allow-Origin": "*",
+        },
+      })
+      .then((res) => {
+        console.log(res);
+      })
+      .catch((error) => {
+        console.log(error);
+      });
+  };
+
   return (
     <ScreenLayout>
       <h1 className={classNames(headingTextStyle)}>Lesson Creator</h1>
@@ -40,18 +58,23 @@ export default function LessonCreator() {
             onChange={(e) => setDesc(e.target.value)}
           />
           <button
-          className="btn btn-lg border-none rounded-md bg-gradient-to-r from-[#00df16] to-[#08bad2]"
-          onClick={() => sendInfo()}
-        >
-          Publish Now
-        </button>
+            className="btn btn-lg border-none rounded-md bg-gradient-to-r from-[#00df16] to-[#08bad2]"
+            onClick={() => sendInfo()}
+          >
+            Publish Now
+          </button>
         </div>
         <div className="w-full h-10" />
         <div className="flex flex-col justify-center items-center w-full space-y-5">
           <div className="flex items-center justify-center w-1/2">
             <label
-              for="dropzone-file"
+              htmlFor="dropzone-file"
               className="flex flex-col items-center justify-center w-full h-64 border-2 rounded-lg cursor-pointer bg-gray-50 hover:bg-gray-100"
+              onDrop={(e) => {
+                e.preventDefault();
+                e.stopPropagation();
+                handleFileSubmit(e.dataTransfer.files);
+              }}
             >
               <div className="flex flex-col items-center justify-center p-6">
                 <svg
@@ -63,9 +86,9 @@ export default function LessonCreator() {
                   xmlns="http://www.w3.org/2000/svg"
                 >
                   <path
-                    stroke-linecap="round"
-                    stroke-linejoin="round"
-                    stroke-width="2"
+                    strokeLinecap="round"
+                    strokeLinejoin="round"
+                    strokeWidth="2"
                     d="M7 16a4 4 0 01-.88-7.903A5 5 0 1115.9 6L16 6a5 5 0 011 9.9M15 13l-3-3m0 0l-3 3m3-3v12"
                   ></path>
                 </svg>
@@ -76,7 +99,12 @@ export default function LessonCreator() {
                   Your videos will be private until you publish them
                 </p>
               </div>
-              <input id="dropzone-file" type="file" className="hidden" />
+              <input
+                id="dropzone-file"
+                type="file"
+                className="hidden"
+                onChange={(e) => handleFileSubmit(e.target.files)}
+              />
             </label>
           </div>
           <span className="text-xl">or</span>
@@ -88,7 +116,7 @@ export default function LessonCreator() {
             <Webcam imageSmoothing={true} audio={true} />
             <span className="absolute left-[calc(50%_-_1.5em)] bottom-10">
               <button
-                class="btn btn-circle btn-error"
+                className="btn btn-circle btn-error"
                 onClick={() => navigate("/publish")}
               >
                 <svg
