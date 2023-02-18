@@ -1,4 +1,5 @@
 import classNames from "classnames";
+import { useLessonContext } from "../contexts/LessonContext";
 import { headingTextStyle } from "./styles";
 import ScreenLayout from "../components/ScreenLayout";
 import { useState } from "react";
@@ -9,6 +10,7 @@ import axios from "axios";
 
 export default function LessonCreator() {
   const navigate = useNavigate();
+  const { setTranscript, setSummary, setQuiz } = useLessonContext();
   const [title, setTitle] = useState("");
   const [desc, setDesc] = useState("");
   const sendMessage = useMutation("SendMessage");
@@ -24,7 +26,10 @@ export default function LessonCreator() {
         },
       })
       .then((res) => {
-        console.log(res);
+        setTranscript(res.data.transcript);
+        setSummary(res.data.summary);
+        setQuiz(res.data.quiz);
+        navigate("/publish");
       })
       .catch((error) => {
         console.log(error);
