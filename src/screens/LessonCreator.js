@@ -15,6 +15,7 @@ export default function LessonCreator() {
   const sendInfo = () => sendMessage(desc, title);
 
   const handleFileSubmit = (files) => {
+    sendInfo();
     axios
       .post("http://localhost:5000", files[0], {
         headers: {
@@ -57,12 +58,6 @@ export default function LessonCreator() {
             placeholder="Describe your lesson"
             onChange={(e) => setDesc(e.target.value)}
           />
-          <button
-            className="btn btn-lg border-none rounded-md bg-gradient-to-r from-[#00df16] to-[#08bad2]"
-            onClick={() => sendInfo()}
-          >
-            Publish Now
-          </button>
         </div>
         <div className="w-full h-10" />
         <div className="flex flex-col justify-center items-center w-full space-y-5">
