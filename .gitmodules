@@ -1,0 +1,3 @@
+[submodule "socrata"]
+	path = socrata
+	url = git@github.com:aaronwangj/socrata.git
