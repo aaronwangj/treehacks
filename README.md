@@ -1,9 +1,9 @@
 ## Inspiration
-####The Creator Economy is Booming
+#### The Creator Economy is Booming
 The creator economy is estimated to be worth $104.2 billion and has grown to over 165 million people globally in the last two years - an increase of 119%. This growth is in large part fueled by younger generations, as 29% of American children want to become a Youtuber/Vlogger when they grow up: more and more, content creators are becoming role models, and educational content from content creators are highly sought after.
 And content creators want to create educational content for their audience. Over 60% of digital creators prefer identifying as creator educators than creators who solely provide entertainment to their audience. Creators are financially incentivized to find more paths to monetize their content; on average, creators have three distinct income streams.
 
-####Developing educational content is hard
+#### Developing educational content is hard
 Developing educational content online is expensive and time-consuming. On average, online courses cost $10,000 to develop each hour of educational content, and it takes an estimated 80 to 280 hours required to develop an online course. This effectively prices out small and medium-sized content creators who don’t have the capital to create educational content but still rely more on diversified content monetization. Another pain point for content creators in developing online courses is the time required to create educational materials, assignments, and study notes. Again, this particularly affects small and medium-sized content creators who do not have access to large-scale production companies and outsourcing capabilities.
 
 ## What it does
